@@ -1,0 +1,38 @@
+# ADEM-endpoint-experience
+ADEM APIs to fetch endpoints affected by high CPU Usage and Memory consumption
+
+Use case: Retrieve all end points (user devices) with CPU , memory greater than given set of values for more than 5 times in the past week
+
+Script Input:
+(base)  endpoint-score % ./endpoint-score.py --help
+usage: endpoint-score.py [-h] [-t1 T1SECRET] [-cpuUsage CPUUSAGE] [-memoryUsage MEMORYUSAGE] [-days DAYS]
+
+Retrieve all end points (user devices) with CPU , memory greater than 90% for more than 5 times in the past week endpoint score is used to measure device performance
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t1 T1SECRET, --T1Secret T1SECRET
+                        Input secret file in .yml format for the tenant(T1)
+  -cpuUsage CPUUSAGE, --cpuUsage CPUUSAGE
+                        CPU usage in percentage
+  -memoryUsage MEMORYUSAGE, --memoryUsage MEMORYUSAGE
+                        Memory usage in percentage
+  -days DAYS, --Days DAYS
+                        Data fetched for the last n days
+
+Script output:
++--------------------------+--------------------------------------+-------------------+--------------------+-------------------+
+| Users                    | Endpoint ID                          | Endpoint Score    | CPU Usage          | Memory Usage      |
++==========================+======================================+===================+====================+===================+
+| DameEdna@panwsase.com    | f3f69c9a-5ff4-4521-bac7-d056d779c423 | 100.0             | 11.732274119395338 | 31.76613705969767 |
++--------------------------+--------------------------------------+-------------------+--------------------+-------------------+
+| BlueyHeeler@panwsase.com | dae4611d-3e3a-47b3-8c38-e823f2c6b642 | 99.9999694809103  | 11.715768139470377 | 26.85788406973519 |
++--------------------------+--------------------------------------+-------------------+--------------------+-------------------+
+| BlueyHeeler@panwsase.com | 558d06ec-2261-48d7-b5e2-6c62f5bceca9 | 99.9999694809103  | 11.715768139470377 | 26.85788406973519 |
++--------------------------+--------------------------------------+-------------------+--------------------+-------------------+
+| JimmyGiggle@panwsase.com | 5161a309-4ce1-4a2d-adb4-f109dff75d96 | 87.07984934972845 | 51.82808388958422  | 49.81404194479211 |
++--------------------------+--------------------------------------+-------------------+--------------------+-------------------+
+| JimmyGiggle@panwsase.com | 874ea933-b053-4b6a-ae2a-257efbf43667 | 87.07984934972845 | 51.82808388958422  | 49.81404194479211 |
++--------------------------+--------------------------------------+-------------------+--------------------+-------------------+
+| DameEdna@panwsase.com    | 66595d8e-e23e-400b-b652-ed1890ef9324 | 100.0             | 11.732274119395338 | 31.76613705969767 |
++--------------------------+--------------------------------------+-------------------+--------------------+-------------------+
